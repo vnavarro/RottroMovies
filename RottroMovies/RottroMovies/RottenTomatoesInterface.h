@@ -7,7 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ASIHTTPRequest.h"
+#import "NSString+SBJSON.h"
+#import "Contants.h"
+#import "RTMovie.h"
+#import "RTActor.h"
+
+@protocol RottenTomatoesDelegate <NSObject>
+
+-(void)getTopTenBoxOffice:(NSArray *)results;
+@end
 
 @interface RottenTomatoesInterface : NSObject
+
+@property (assign,nonatomic) id<RottenTomatoesDelegate> delegate;
+
+-(void)getTopTenBoxOffice:(id<RottenTomatoesDelegate>)delegate;
+-(RTMovie *)getMovieFromJson:(NSDictionary *)jsonValue;
+-(NSArray *)getMoviesFromJson:(NSDictionary *)jsonValue;
+-(NSDictionary *)getTopTenBoxOffice;
++(RottenTomatoesInterface *) shared;
 
 @end

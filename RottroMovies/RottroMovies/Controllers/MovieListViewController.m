@@ -13,6 +13,9 @@
 @end
 
 @implementation MovieListViewController
+@synthesize cell_nib =_cell_nib;
+@synthesize cell_temp = _cell_temp;
+@synthesize data=_data;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,7 +29,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.cell_nib = [UINib nibWithNibName:@"MovieCellView" bundle:nil];    
+  
+    [self.tableView setRowHeight:110];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+  
+    [self setTitle:@"Top 10 Box Office Earnings"];
+    
+    [self downloadData];
+  
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -41,34 +52,81 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void)dealloc
+{
+  [_data release];
+  [_cell_nib release];
+  [_cell_temp release];
+  [super dealloc];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - Data Fetch
+
+-(void)downloadData{
+  [self startLoading];
+}
+
+-(void)getTopTenBoxOffice:(NSArray *)results{
+    self.data = results;
+    [self.tableView reloadData];
+    [self stopLoading];
+}
+
+-(void)refresh{
+  [[RottenTomatoesInterface shared]getTopTenBoxOffice:self];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.data count];
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{  
+    RTMovie *movie = [self.data objectAtIndex:indexPath.row];
+    [(MovieCellController*)cell layoutWithMovie:movie];
+    
+    if(indexPath.row%2){
+        [cell setBackgroundColor:[UIColor whiteColor]];
+    }else {
+        //[UIColor colorWithRed:0.949 green:0.949 blue:0.949 alpha:1]
+        [cell setBackgroundColor:UIColorFromRGB(0xF2F2F2)];
+    }
+    
+    MovieCellController *movieCell = (MovieCellController *)cell;
+    CGSize titleSize = [movieCell.lblTitle.text sizeWithFont:movieCell.lblTitle.font];
+    CGRect imgFrame = movieCell.imgMPAARating.frame;    
+    imgFrame.origin.x = movieCell.lblTitle.frame.origin.x+titleSize.width+5;
+    [movieCell.imgMPAARating setFrame:imgFrame];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    // Configure the cell...
-    
+{    
+    static NSString *CellIdentifier = @"cell";
+  
+    MovieCellController *cell = (MovieCellController *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  
+    if (cell == nil){
+      [self.cell_nib instantiateWithOwner:self options:nil];
+      cell = self.cell_temp;
+      self.cell_temp = nil;
+    }
+  
+    [cell.lblTitle setText:@"Movie"];
+  
     return cell;
 }
 

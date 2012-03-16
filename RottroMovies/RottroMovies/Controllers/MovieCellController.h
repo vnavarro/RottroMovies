@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RTMovie.h"
+#import "UIImageView+WebCache.h"
 
-@interface MovieCellControllerCell : UITableViewCell
+@interface MovieCellController : UITableViewCell
+@property (retain, nonatomic) IBOutlet UIImageView *imgCover;
+@property (retain, nonatomic) IBOutlet UILabel *lblTitle;
+@property (retain, nonatomic) IBOutlet UIProgressView *pgRating;
+@property (retain, nonatomic) IBOutlet UIImageView *imgMPAARating;
+
+-(void)layoutWithMovie:(RTMovie *)movie;
 
 @end

@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MovieCellController.h"
+#import "PullRefreshTableViewController.h"
+#import "RottenTomatoesInterface.h"
+#import "Contants.h"
 
-@interface MovieListViewController : UITableViewController
+@interface MovieListViewController : PullRefreshTableViewController <UITableViewDelegate,
+UITableViewDataSource,RottenTomatoesDelegate>
+
+@property (strong,nonatomic) IBOutlet UINib *cell_nib;
+@property (strong,nonatomic) IBOutlet MovieCellController *cell_temp;
+
+@property (strong,nonatomic) NSArray *data;
 
 @end

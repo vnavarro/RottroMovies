@@ -19,10 +19,17 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+{  
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    //self.mainWindow = [[[MainViewController alloc]initWithNibName:@"MainWindow" bundle:nil]autorelease];
+    //[self.window addSubview:self.mainWindow.view];
+   // [self.window setRootViewController:self.mainWindow];
+    
+  UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:[[MovieListViewController alloc]init]];
+  
+    UITabBarController *tabBarController = [[[UITabBarController alloc] init] autorelease];  
+    tabBarController.viewControllers = [NSArray arrayWithObjects:navController, nil, nil];
+    self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
     return YES;
 }
