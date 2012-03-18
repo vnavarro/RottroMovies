@@ -17,13 +17,13 @@
 @synthesize criticsScore=_criticsScore;
 @synthesize year=_year;
 @synthesize synopsis=_synopsis;
-@synthesize fresh=_fresh;
 @synthesize runtime=_runtime;
 @synthesize thumbnail=_thumbnail;
 @synthesize original=_original;
 @synthesize cast=_cast;
+@synthesize movieLink=_movieLink;
 
--(void)setMPAARatingWithString:(NSString *)mpaa{
+/*-(void)setMPAARatingWithString:(NSString *)mpaa{
     NSString *lowerCaseMpaa = [mpaa lowercaseString];
     if([lowerCaseMpaa isEqualToString:@"pg"]){
         self.mpaaRating = PG;
@@ -36,7 +36,7 @@
     }else if ([lowerCaseMpaa isEqualToString:@"g"]) {
         self.mpaaRating = G;
     }
-}
+}*/
 
 - (void)dealloc
 {
@@ -48,6 +48,8 @@
     [_original release];
     [_cast release];
     [_criticsRating release];
+    [_mpaaRating release];
+    [_movieLink release];
     [super dealloc];
 }
 

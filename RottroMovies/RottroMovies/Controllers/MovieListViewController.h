@@ -11,6 +11,7 @@
 #import "PullRefreshTableViewController.h"
 #import "RottenTomatoesInterface.h"
 #import "Contants.h"
+#import "MovieDetailsViewController.h"
 
 @interface MovieListViewController : PullRefreshTableViewController <UITableViewDelegate,
 UITableViewDataSource,RottenTomatoesDelegate>
@@ -20,4 +21,5 @@ UITableViewDataSource,RottenTomatoesDelegate>
 
 @property (strong,nonatomic) NSArray *data;
 
+-(void)downloadData;
 @end

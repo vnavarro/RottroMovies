@@ -17,11 +17,12 @@
 @synthesize cell_temp = _cell_temp;
 @synthesize data=_data;
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)init
 {
-    self = [super initWithStyle:style];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        self.tabBarItem = [[UITabBarItem alloc]initWithTabBarSystemItem:UITabBarSystemItemTopRated tag:0];
+        [self setTitle:@"Top Box Office"];
     }
     return self;
 }
@@ -33,23 +34,13 @@
   
     [self.tableView setRowHeight:110];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-  
-    [self setTitle:@"Top 10 Box Office Earnings"];
     
     [self downloadData];
-  
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)dealloc
@@ -85,13 +76,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return [self.data count];
 }
 
@@ -109,7 +98,9 @@
     MovieCellController *movieCell = (MovieCellController *)cell;
     CGSize titleSize = [movieCell.lblTitle.text sizeWithFont:movieCell.lblTitle.font];
     CGRect imgFrame = movieCell.imgMPAARating.frame;    
-    imgFrame.origin.x = movieCell.lblTitle.frame.origin.x+titleSize.width+5;
+    float newX = movieCell.lblTitle.frame.origin.x+titleSize.width+5;    
+    imgFrame.origin.x = (newX > imgFrame.origin.x) ? imgFrame.origin.x : newX;
+    
     [movieCell.imgMPAARating setFrame:imgFrame];
 }
 
@@ -124,8 +115,6 @@
       cell = self.cell_temp;
       self.cell_temp = nil;
     }
-  
-    [cell.lblTitle setText:@"Movie"];
   
     return cell;
 }
@@ -173,14 +162,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    MovieDetailsViewController *movieDetails = [[[MovieDetailsViewController alloc]initWithMovie:[self.data objectAtIndex:indexPath.row]]autorelease];
+    [self.navigationController pushViewController:movieDetails animated:YES];
 }
 
 @end

@@ -13,6 +13,7 @@
 @synthesize lblTitle;
 @synthesize pgRating;
 @synthesize imgMPAARating;
+@synthesize isFavorite;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -24,32 +25,20 @@
 
 -(void)layoutWithMovie:(RTMovie *)movie{
     [self.lblTitle setText:movie.title];
-    switch (movie.mpaaRating) {
-        case G:
-            [self.imgMPAARating setImage:[UIImage imageNamed:@"g.png"]];
-            break;
-        case NC17:
-            [self.imgMPAARating setImage:[UIImage imageNamed:@"nc_17.png"]];
-            break;
-        case PG13:
-            [self.imgMPAARating setImage:[UIImage imageNamed:@"pg_13.png"]];
-            break;
-        case PG:
-            [self.imgMPAARating setImage:[UIImage imageNamed:@"pg.png"]];
-            break;
-        case R:
-            [self.imgMPAARating setImage:[UIImage imageNamed:@"r.png"]];
-            break;
+    NSString *lowerCaseMpaa = [movie.mpaaRating lowercaseString];
+    if([lowerCaseMpaa isEqualToString:@"pg"]){
+        [self.imgMPAARating setImage:[UIImage imageNamed:@"pg.png"]];
+    }else if([lowerCaseMpaa isEqualToString:@"pg-13"]){
+        [self.imgMPAARating setImage:[UIImage imageNamed:@"pg_13.png"]];
+    }else if ([lowerCaseMpaa isEqualToString:@"r"]) {
+        [self.imgMPAARating setImage:[UIImage imageNamed:@"r.png"]];
+    }else if ([lowerCaseMpaa isEqualToString:@"nc-17"]) {
+        [self.imgMPAARating setImage:[UIImage imageNamed:@"nc_17.png"]];
+    }else if ([lowerCaseMpaa isEqualToString:@"g"]) {
+        [self.imgMPAARating setImage:[UIImage imageNamed:@"g.png"]];
     }
-    [self.imgCover setImageWithURL:movie.thumbnail];
+    [self.imgCover setImageWithURL:movie.thumbnail placeholderImage:[UIImage imageNamed:@"loading.png"]];
     [self.pgRating setProgress:movie.criticsScore/100.0f];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)dealloc {

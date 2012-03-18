@@ -15,6 +15,7 @@
 @property (retain, nonatomic) IBOutlet UILabel *lblTitle;
 @property (retain, nonatomic) IBOutlet UIProgressView *pgRating;
 @property (retain, nonatomic) IBOutlet UIImageView *imgMPAARating;
+@property (assign, nonatomic) BOOL isFavorite;
 
 -(void)layoutWithMovie:(RTMovie *)movie;
 

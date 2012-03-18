@@ -30,13 +30,14 @@
     if(jsonValue && [jsonValue count] > 0){
         RTMovie *movie = [[[RTMovie alloc]init]autorelease];
         movie.movieId = [jsonValue objectForKey:@"id"];
-        movie.title = [jsonValue objectForKey:@"title"];
-        [movie setMPAARatingWithString:[jsonValue objectForKey:@"mpaa_rating"]];
+        movie.title = [jsonValue objectForKey:@"title"];        
+        movie.mpaaRating = [jsonValue objectForKey:@"mpaa_rating"];
+        //[movie setMPAARatingWithString:[jsonValue objectForKey:@"mpaa_rating"]];
         
         NSDictionary *ratings = [jsonValue objectForKey:@"ratings"];
         movie.criticsScore = [[ratings objectForKey:@"critics_score"] intValue];
         movie.criticsRating = [ratings objectForKey:@"critics_rating"]; 
-        movie.synopsis = [jsonValue objectForKey:@"critics_rating"];         
+        movie.synopsis = [jsonValue objectForKey:@"synopsis"];         
         
         NSDictionary *posters = [jsonValue objectForKey:@"posters"];
         movie.thumbnail = [NSURL URLWithString:[posters objectForKey:@"thumbnail"]];         
@@ -52,7 +53,8 @@
         }
         movie.cast = movieCast;
         movie.runtime = [[jsonValue objectForKey:@"runtime"] intValue];
-        movie.year = [jsonValue objectForKey:@"year"];
+        movie.year = [jsonValue objectForKey:@"year"];        
+        movie.movieLink = [jsonValue objectForKey:@"alternate"];
         
         return movie;
     }

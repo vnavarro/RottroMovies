@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MovieListViewController.h"
+#import "FavoriteListViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
