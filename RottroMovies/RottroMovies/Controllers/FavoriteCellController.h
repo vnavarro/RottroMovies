@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Favorite.h"
 #import "UIImageView+WebCache.h"
-#import "Contants.h"
+#import "Constants.h"
 
 @protocol FavoriteCellDelegate <NSObject>
 

@@ -54,7 +54,9 @@
         movie.cast = movieCast;
         movie.runtime = [[jsonValue objectForKey:@"runtime"] intValue];
         movie.year = [jsonValue objectForKey:@"year"];        
-        movie.movieLink = [jsonValue objectForKey:@"alternate"];
+        NSDictionary *links = [jsonValue objectForKey:@"links"];
+        NSLog(@"%@",[links objectForKey:@"alternate"]);
+        movie.movieLink = [links objectForKey:@"alternate"];
         
         return movie;
     }

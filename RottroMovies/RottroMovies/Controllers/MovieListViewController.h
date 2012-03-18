@@ -10,7 +10,7 @@
 #import "MovieCellController.h"
 #import "PullRefreshTableViewController.h"
 #import "RottenTomatoesInterface.h"
-#import "Contants.h"
+#import "Constants.h"
 #import "MovieDetailsViewController.h"
 
 @interface MovieListViewController : PullRefreshTableViewController <UITableViewDelegate,

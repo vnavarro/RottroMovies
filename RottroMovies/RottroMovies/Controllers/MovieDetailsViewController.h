@@ -11,10 +11,13 @@
 #import "UIImageView+WebCache.h"
 #import "LineViewController.h"
 #import "ActorsViewController.h"
-#import "SHKTwitter.h"
 #import "FavoriteModel.h"
+#import "TwitterAccessor.h"
+#import "TwitterAuthViewController.h"
+#import "SocialShareViewController.h"
+#import "FacebookAccessor.h"
 
-@interface MovieDetailsViewController : UIViewController
+@interface MovieDetailsViewController : UIViewController <FacebookLoginDelegate>
 
 @property (strong,nonatomic) RTMovie *movie;
 @property (retain, nonatomic) IBOutlet UIImageView *imgPoster;
@@ -24,10 +27,11 @@
 @property (retain, nonatomic) IBOutlet UILabel *lblCastTitle;
 @property (retain, nonatomic) IBOutlet UILabel *lblFooter;
 @property (retain, nonatomic) IBOutlet UIButton *btnFavorite;
-- (IBAction)addToFavorites:(id)sender;
-
+@property (retain, nonatomic) IBOutlet UIButton *btnFacebook;
 @property (strong,nonatomic) ActorsViewController *actorsTable;
 
+- (IBAction)addToFavorites:(id)sender;
+- (IBAction)shareFacebook:(id)sender;
 -(id)initWithMovie:(RTMovie *)movie;
 
 @end

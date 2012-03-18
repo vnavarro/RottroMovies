@@ -46,8 +46,8 @@
 // If SHKFacebookUseSessionProxy is enabled then SHKFacebookSecret is ignored and should be left blank
 
 #define SHKFacebookUseSessionProxy  NO 
-#define SHKFacebookKey				@""
-#define SHKFacebookSecret			@""
+#define SHKFacebookKey				@"323963917664166"
+#define SHKFacebookSecret			@"1a13502d4c18adb6c92767b25ecc9a79"
 #define SHKFacebookSessionProxyURL  @""
 
 // Read It Later - http://readitlaterlist.com/api/?shk
@@ -71,7 +71,7 @@
  */
 #define SHKTwitterConsumerKey		@"5LlbtfBDPtpjZiathLylzw"
 #define SHKTwitterSecret			@"uEsjcEyvPF3RZJoMjDC3rHbjo7NbwX1HUwKrrdhFk"
-#define SHKTwitterCallbackUrl		@"http://www.vnavarro.com.br" // You need to set this if using OAuth, see note above (xAuth users can skip it)
+#define SHKTwitterCallbackUrl		@"http://www.google.com" // You need to set this if using OAuth, see note above (xAuth users can skip it)
 #define SHKTwitterUseXAuth			0 // To use xAuth, set to 1
 #define SHKTwitterUsername			@"" // Enter your app's twitter account if you'd like to ask the user to follow it when logging in. (Only for xAuth)
 

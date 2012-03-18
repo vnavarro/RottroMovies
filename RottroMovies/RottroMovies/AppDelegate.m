@@ -31,6 +31,7 @@
   
     UITabBarController *tabBarController = [[[UITabBarController alloc] init] autorelease];  
     tabBarController.viewControllers = [NSArray arrayWithObjects:movieListNavigationController, favoriteListNavigationController, nil];
+    
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
     return YES;

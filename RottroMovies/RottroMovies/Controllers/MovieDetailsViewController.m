@@ -21,6 +21,7 @@
 @synthesize lblCastTitle = _lblCastTitle;
 @synthesize lblFooter = _lblFooter;
 @synthesize btnFavorite = _btnFavorite;
+@synthesize btnFacebook = _btnFacebook;
 @synthesize actorsTable = _actorsTable;
 
 -(id)initWithMovie:(RTMovie *)movie{
@@ -73,20 +74,51 @@
     UIImage *tweetImg =  [UIImage imageNamed:@"Twitter.png"];
     CGFloat imgWidth = tweetImg.size.width*.8f;
     
-    UIButton *btn = [[UIButton buttonWithType:UIButtonTypeCustom]retain];
-    [btn setImage:tweetImg forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(tweet:) forControlEvents:UIControlEventTouchUpInside];
-    [btn setFrame:CGRectMake(0, 0, imgWidth,imgWidth )];
+    UIButton *btnTwitter = [[UIButton buttonWithType:UIButtonTypeCustom]retain];
+    [btnTwitter setImage:tweetImg forState:UIControlStateNormal];
+    [btnTwitter addTarget:self action:@selector(tweet:) forControlEvents:UIControlEventTouchUpInside];
+    [btnTwitter setFrame:CGRectMake(0, 0, imgWidth,imgWidth )];
     
+    UIView *container = [[UIView alloc]initWithFrame:CGRectMake(0, 0, imgWidth,imgWidth )];
+    [container addSubview:btnTwitter];
     
-    UIBarButtonItem *right_button = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    UIBarButtonItem *right_button = [[UIBarButtonItem alloc]initWithCustomView:container];
     
     [self.navigationItem setRightBarButtonItem:right_button];
 }
 
--(void)tweet:(id)sender{
-   [SHKTwitter shareText:[NSString stringWithFormat:@"I liked a movie %@ #Flixter #RottroMovies",self.movie.movieLink]];
+#pragma mark - Share
+
+- (IBAction)addToFavorites:(id)sender {
+    [Favorite addFavoriteFromMovie:self.movie];
 }
+- (IBAction)shareFacebook:(id)sender {    
+    if(![[FacebookAccessor sharedAccessor] isCredentialsValid]){
+        [[FacebookAccessor sharedAccessor] validateCredentials:self];
+    }else {
+        [self onLogin];
+    }   
+}
+
+-(void)onLogin{
+    SocialShareViewController* socialShareViewController = [[[SocialShareViewController alloc]initWithStatus:[NSString stringWithFormat:@"I liked a movie %@ #Flixter #RottroMovies",self.movie.movieLink]]autorelease];
+    [self.navigationController pushViewController:socialShareViewController animated:YES];     
+}
+-(void)onLoginError{
+    
+}
+
+-(void)tweet:(id)sender{    
+    if(![TwitterAccessor sharedAccessor].valid_credentials){   
+        TwitterAuthViewController * twitterAuthViewController = [[TwitterAuthViewController alloc]init];
+        [self.navigationController pushViewController:twitterAuthViewController animated:YES];
+    }else {
+        SocialShareViewController *socialShareViewController = [[[SocialShareViewController alloc]initWithStatus:[NSString stringWithFormat:@"I liked a movie %@ #Flixter #RottroMovies",self.movie.movieLink]]autorelease];
+        [self.navigationController pushViewController:socialShareViewController animated:YES];        
+    }
+}
+
+#pragma mark - cleanup
 
 - (void)viewDidUnload
 {
@@ -96,13 +128,9 @@
     [self setLblCastTitle:nil];
     [self setLblFooter:nil];
     [self setBtnFavorite:nil];
+    [self setBtnFacebook:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void)dealloc
@@ -115,10 +143,9 @@
     [_lblFooter release];
     [_actorsTable release];
     [_btnFavorite release];
+    [_btnFacebook release];
     [super dealloc];
 }
 
-- (IBAction)addToFavorites:(id)sender {
-    [Favorite addFavoriteFromMovie:self.movie];
-}
+
 @end

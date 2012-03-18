@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ASIHTTPRequest.h"
 #import "NSString+SBJSON.h"
-#import "Contants.h"
+#import "Constants.h"
 #import "RTMovie.h"
 #import "RTActor.h"
 
