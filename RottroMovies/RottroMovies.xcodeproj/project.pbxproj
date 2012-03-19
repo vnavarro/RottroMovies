@@ -55,8 +55,6 @@
 		283F5A141516805D001D0576 /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 283F59FF1516805D001D0576 /* OATokenManager.m */; };
 		283F5A151516805D001D0576 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 283F5A011516805D001D0576 /* README */; };
 		283F5A22151680BC001D0576 /* FacebookAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 283F5A19151680BC001D0576 /* FacebookAccessor.m */; };
-		283F5A23151680BC001D0576 /* FacebookParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 283F5A1B151680BC001D0576 /* FacebookParser.m */; };
-		283F5A25151680BC001D0576 /* FBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 283F5A1F151680BC001D0576 /* FBUser.m */; };
 		283F5A31151680D7001D0576 /* TwitterAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 283F5A2A151680D7001D0576 /* TwitterAccessor.m */; };
 		283F5A33151680D7001D0576 /* TwitterAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283F5A2D151680D7001D0576 /* TwitterAuthViewController.m */; };
 		283F5A3715168253001D0576 /* UIAlertView+UIAlertView_Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 283F5A3615168253001D0576 /* UIAlertView+UIAlertView_Helper.m */; };
@@ -79,6 +77,8 @@
 		283F5A6815169724001D0576 /* FacebookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283F5A6715169724001D0576 /* FacebookView.xib */; };
 		283F5A6A1516A626001D0576 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5A691516A61E001D0576 /* 57.png */; };
 		283F5A6C1516A63B001D0576 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5A6B1516A639001D0576 /* 114.png */; };
+		283F5A6E1516C356001D0576 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5A6D1516C350001D0576 /* Default.png */; };
+		283F5A701516C369001D0576 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5A6F1516C364001D0576 /* Default@2x.png */; };
 		289FE7861511A117008E548B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289FE7851511A117008E548B /* UIKit.framework */; };
 		289FE7881511A117008E548B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289FE7871511A117008E548B /* Foundation.framework */; };
 		289FE78A1511A117008E548B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289FE7891511A117008E548B /* CoreGraphics.framework */; };
@@ -242,10 +242,6 @@
 		283F5A011516805D001D0576 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		283F5A18151680BC001D0576 /* FacebookAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookAccessor.h; sourceTree = "<group>"; };
 		283F5A19151680BC001D0576 /* FacebookAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookAccessor.m; sourceTree = "<group>"; };
-		283F5A1A151680BC001D0576 /* FacebookParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookParser.h; sourceTree = "<group>"; };
-		283F5A1B151680BC001D0576 /* FacebookParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookParser.m; sourceTree = "<group>"; };
-		283F5A1E151680BC001D0576 /* FBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBUser.h; sourceTree = "<group>"; };
-		283F5A1F151680BC001D0576 /* FBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBUser.m; sourceTree = "<group>"; };
 		283F5A29151680D7001D0576 /* TwitterAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterAccessor.h; sourceTree = "<group>"; };
 		283F5A2A151680D7001D0576 /* TwitterAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterAccessor.m; sourceTree = "<group>"; };
 		283F5A2C151680D7001D0576 /* TwitterAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterAuthViewController.h; sourceTree = "<group>"; };
@@ -263,12 +259,14 @@
 		283F5A471516831E001D0576 /* FBRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBRequest.h; sourceTree = "<group>"; };
 		283F5A481516831E001D0576 /* FBRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBRequest.m; sourceTree = "<group>"; };
 		283F5A5A15168B4E001D0576 /* TwitterAuthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterAuthView.xib; sourceTree = "<group>"; };
-		283F5A5C15168CE3001D0576 /* SocialShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialShareViewController.h; sourceTree = "<group>"; };
-		283F5A5D15168CE4001D0576 /* SocialShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialShareViewController.m; sourceTree = "<group>"; };
-		283F5A5F15168E7D001D0576 /* SocialShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocialShareViewController.xib; sourceTree = "<group>"; };
+		283F5A5C15168CE3001D0576 /* SocialShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocialShareViewController.h; path = Twitter/SocialShareViewController.h; sourceTree = "<group>"; };
+		283F5A5D15168CE4001D0576 /* SocialShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocialShareViewController.m; path = Twitter/SocialShareViewController.m; sourceTree = "<group>"; };
+		283F5A5F15168E7D001D0576 /* SocialShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SocialShareViewController.xib; path = Twitter/SocialShareViewController.xib; sourceTree = "<group>"; };
 		283F5A6715169724001D0576 /* FacebookView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacebookView.xib; sourceTree = "<group>"; };
 		283F5A691516A61E001D0576 /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 57.png; sourceTree = "<group>"; };
 		283F5A6B1516A639001D0576 /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 114.png; sourceTree = "<group>"; };
+		283F5A6D1516C350001D0576 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		283F5A6F1516C364001D0576 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		289FE7811511A117008E548B /* RottroMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RottroMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289FE7851511A117008E548B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		289FE7871511A117008E548B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -487,8 +485,6 @@
 		283F5A1615168077001D0576 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
-				283F5A5C15168CE3001D0576 /* SocialShareViewController.h */,
-				283F5A5D15168CE4001D0576 /* SocialShareViewController.m */,
 				283F5A3515168252001D0576 /* UIAlertView+UIAlertView_Helper.h */,
 				283F5A3615168253001D0576 /* UIAlertView+UIAlertView_Helper.m */,
 				283F5A29151680D7001D0576 /* TwitterAccessor.h */,
@@ -496,7 +492,6 @@
 				283F5A2C151680D7001D0576 /* TwitterAuthViewController.h */,
 				283F5A2D151680D7001D0576 /* TwitterAuthViewController.m */,
 				283F5A5A15168B4E001D0576 /* TwitterAuthView.xib */,
-				283F5A5F15168E7D001D0576 /* SocialShareViewController.xib */,
 			);
 			path = Twitter;
 			sourceTree = "<group>";
@@ -506,10 +501,6 @@
 			children = (
 				283F5A18151680BC001D0576 /* FacebookAccessor.h */,
 				283F5A19151680BC001D0576 /* FacebookAccessor.m */,
-				283F5A1A151680BC001D0576 /* FacebookParser.h */,
-				283F5A1B151680BC001D0576 /* FacebookParser.m */,
-				283F5A1E151680BC001D0576 /* FBUser.h */,
-				283F5A1F151680BC001D0576 /* FBUser.m */,
 				283F5A6715169724001D0576 /* FacebookView.xib */,
 			);
 			path = Facebook;
@@ -544,6 +535,8 @@
 		289FE7761511A116008E548B = {
 			isa = PBXGroup;
 			children = (
+				283F5A6F1516C364001D0576 /* Default@2x.png */,
+				283F5A6D1516C350001D0576 /* Default.png */,
 				283F5A6B1516A639001D0576 /* 114.png */,
 				283F5A691516A61E001D0576 /* 57.png */,
 				289FE78B1511A117008E548B /* RottroMovies */,
@@ -838,6 +831,9 @@
 		28E2C8D71512BAA1000C87CC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				283F5A5C15168CE3001D0576 /* SocialShareViewController.h */,
+				283F5A5D15168CE4001D0576 /* SocialShareViewController.m */,
+				283F5A5F15168E7D001D0576 /* SocialShareViewController.xib */,
 				283F5A17151680BA001D0576 /* Facebook */,
 				283F5A1615168077001D0576 /* Twitter */,
 				28E2C8C51512B80A000C87CC /* Constants.h */,
@@ -981,6 +977,8 @@
 				283F5A6815169724001D0576 /* FacebookView.xib in Resources */,
 				283F5A6A1516A626001D0576 /* 57.png in Resources */,
 				283F5A6C1516A63B001D0576 /* 114.png in Resources */,
+				283F5A6E1516C356001D0576 /* Default.png in Resources */,
+				283F5A701516C369001D0576 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1088,8 +1086,6 @@
 				283F5A131516805D001D0576 /* OAToken.m in Sources */,
 				283F5A141516805D001D0576 /* OATokenManager.m in Sources */,
 				283F5A22151680BC001D0576 /* FacebookAccessor.m in Sources */,
-				283F5A23151680BC001D0576 /* FacebookParser.m in Sources */,
-				283F5A25151680BC001D0576 /* FBUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

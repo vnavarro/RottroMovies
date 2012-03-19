@@ -36,6 +36,8 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self downloadData];
+    
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
 }
 
 - (void)viewDidUnload
@@ -68,9 +70,15 @@
     [self stopLoading];
 }
 
+-(void)requestFailed{
+    [self stopLoading];
+}
+
 -(void)refresh{
   [[RottenTomatoesInterface shared]getTopTenBoxOffice:self];
 }
+
+
 
 #pragma mark - Table view data source
 
@@ -84,18 +92,17 @@
     return [self.data count];
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{  
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{      
     RTMovie *movie = [self.data objectAtIndex:indexPath.row];
-    [(MovieCellController*)cell layoutWithMovie:movie];
+    MovieCellController *movieCell = (MovieCellController *)cell;
+    [movieCell layoutWithMovie:movie];
     
     if(indexPath.row%2){
         [cell setBackgroundColor:[UIColor whiteColor]];
     }else {
-        //[UIColor colorWithRed:0.949 green:0.949 blue:0.949 alpha:1]
         [cell setBackgroundColor:UIColorFromRGB(0xF2F2F2)];
     }
     
-    MovieCellController *movieCell = (MovieCellController *)cell;
     CGSize titleSize = [movieCell.lblTitle.text sizeWithFont:movieCell.lblTitle.font];
     CGRect imgFrame = movieCell.imgMPAARating.frame;    
     float newX = movieCell.lblTitle.frame.origin.x+titleSize.width+5;    
@@ -118,45 +125,6 @@
   
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 

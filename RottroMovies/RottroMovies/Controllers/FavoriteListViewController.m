@@ -50,7 +50,7 @@
 -(void)refresh{
     self.data = [Favorite findAllSortedBy:@"title" ascending:YES];
     [self.tableView reloadData];
-    [self performSelector:@selector(stopLoading) withObject:nil afterDelay:0.5];
+    [self performSelector:@selector(stopLoading) withObject:nil afterDelay:1];
 }
 
 #pragma mark - UITableView

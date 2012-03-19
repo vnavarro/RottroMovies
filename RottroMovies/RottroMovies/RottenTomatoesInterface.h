@@ -16,6 +16,7 @@
 @protocol RottenTomatoesDelegate <NSObject>
 
 -(void)getTopTenBoxOffice:(NSArray *)results;
+-(void)requestFailed;
 @end
 
 @interface RottenTomatoesInterface : NSObject

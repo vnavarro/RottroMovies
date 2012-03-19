@@ -23,7 +23,4 @@
 @property (strong,nonatomic) NSArray *cast;
 @property (strong,nonatomic) NSString *movieLink;
 
-
-//-(void)setMPAARatingWithString:(NSString *)mpaa;
-
 @end

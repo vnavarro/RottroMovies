@@ -32,7 +32,6 @@
         movie.movieId = [jsonValue objectForKey:@"id"];
         movie.title = [jsonValue objectForKey:@"title"];        
         movie.mpaaRating = [jsonValue objectForKey:@"mpaa_rating"];
-        //[movie setMPAARatingWithString:[jsonValue objectForKey:@"mpaa_rating"]];
         
         NSDictionary *ratings = [jsonValue objectForKey:@"ratings"];
         movie.criticsScore = [[ratings objectForKey:@"critics_score"] intValue];
@@ -55,7 +54,6 @@
         movie.runtime = [[jsonValue objectForKey:@"runtime"] intValue];
         movie.year = [jsonValue objectForKey:@"year"];        
         NSDictionary *links = [jsonValue objectForKey:@"links"];
-        NSLog(@"%@",[links objectForKey:@"alternate"]);
         movie.movieLink = [links objectForKey:@"alternate"];
         
         return movie;
@@ -86,9 +84,9 @@
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-  //NSError *error = [request error];
   UIAlertView *message = [[UIAlertView alloc]initWithTitle:@"Something went wrong!" message:@"Please check your internet connection." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
   [message show];
+    [self.delegate requestFailed];
 }
 
 

@@ -9,13 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "FBConnect.h"
 #import "Constants.h"
-#import "FBUser.h"
-#import "FacebookParser.h"
 
 @protocol FacebookLoginDelegate <NSObject>
 
--(void)onLogin;
--(void)onLoginError;
+-(void)onFbAccessorLogin;
+-(void)onFbAccessorLoginError;
 
 @end
 

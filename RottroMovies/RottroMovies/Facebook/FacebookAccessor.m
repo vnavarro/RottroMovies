@@ -44,7 +44,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self.facebook selector:@selector(saveAccessToken) name:@"accessToken" object:nil] ;
     self.delegate = delegate;
     [self.facebook dialog:@"oauth" andParams:parameters andDelegate:self];
-    //[self.facebook authorize:permissions delegate:self];
   }
 }
 
@@ -53,6 +52,8 @@
   NSLog(@"%@",self.facebook.expirationDate);
   return [self.facebook isSessionValid];
 }
+
+#pragma mark - Facebook Delegates
 
 -(BOOL)handleUrl:(NSURL *)url{
   return [self.facebook handleOpenURL:url];
@@ -68,7 +69,7 @@
 
 - (void)fbDidLogin {
   [self saveAccessToken];
-  [self.delegate onLogin];
+  [self.delegate onFbAccessorLogin];
 }
 
 -(void)fbDialogLogin:(NSString *)token expirationDate:(NSDate *)expirationDate{
@@ -82,7 +83,7 @@
 -(void)fbDidNotLogin:(BOOL)cancelled{
   self.facebook.accessToken = nil;
   self.facebook.expirationDate = nil;
-  [self.delegate onLoginError];
+  [self.delegate onFbAccessorLoginError];
 }
 
 -(void)fbDidLogout{
@@ -101,6 +102,8 @@
 - (void)dialog:(FBDialog*)dialog didFailWithError:(NSError *)error{
     NSLog(@"Error 3:%@",error);
 }
+
+#pragma mark - Lifecycle
 
 - (id)init {
   self = [super init];

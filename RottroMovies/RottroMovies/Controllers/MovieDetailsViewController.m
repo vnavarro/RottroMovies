@@ -71,41 +71,52 @@
     [self.detailsScrollView setScrollEnabled:YES];
     [self.detailsScrollView setContentSize:CGSizeMake(self.view.frame.size.width, self.lblFooter.frame.origin.y+self.lblFooter.frame.size.height)];    
     
+    [self insertShareButtonOnNavBar];
+}
+
+-(void) insertShareButtonOnNavBar{
     UIImage *tweetImg =  [UIImage imageNamed:@"Twitter.png"];
     CGFloat imgWidth = tweetImg.size.width*.8f;
-    
+
     UIButton *btnTwitter = [[UIButton buttonWithType:UIButtonTypeCustom]retain];
     [btnTwitter setImage:tweetImg forState:UIControlStateNormal];
     [btnTwitter addTarget:self action:@selector(tweet:) forControlEvents:UIControlEventTouchUpInside];
     [btnTwitter setFrame:CGRectMake(0, 0, imgWidth,imgWidth )];
-    
+
     UIView *container = [[UIView alloc]initWithFrame:CGRectMake(0, 0, imgWidth,imgWidth )];
     [container addSubview:btnTwitter];
-    
+
     UIBarButtonItem *right_button = [[UIBarButtonItem alloc]initWithCustomView:container];
-    
+
     [self.navigationItem setRightBarButtonItem:right_button];
 }
 
 #pragma mark - Share
 
-- (IBAction)addToFavorites:(id)sender {
+- (IBAction)addToFavorites:(id)sender {    
+    [SVProgressHUD showInView:self.view status:@"Adding"];
     [Favorite addFavoriteFromMovie:self.movie];
+    [SVProgressHUD dismissWithSuccess:@"Success!"];
 }
 - (IBAction)shareFacebook:(id)sender {    
     if(![[FacebookAccessor sharedAccessor] isCredentialsValid]){
         [[FacebookAccessor sharedAccessor] validateCredentials:self];
     }else {
-        [self onLogin];
+        [self onFbAccessorLogin];
     }   
 }
 
--(void)onLogin{
+-(void)onFbAccessorLogin{
     SocialShareViewController* socialShareViewController = [[[SocialShareViewController alloc]initWithStatus:[NSString stringWithFormat:@"I liked a movie %@ #Flixter #RottroMovies",self.movie.movieLink]]autorelease];
     [self.navigationController pushViewController:socialShareViewController animated:YES];     
 }
--(void)onLoginError{
-    
+-(void)onFbAccessorLoginError{
+    UIAlertView *alert_view = [[[UIAlertView alloc]initWithTitle:@"FB Login" 
+                                                         message:@"Something went wrong, try again later..." 
+                                                        delegate:nil
+                                               cancelButtonTitle:@"Ok" 
+                                               otherButtonTitles:nil,  nil]autorelease];
+    [alert_view show];
 }
 
 -(void)tweet:(id)sender{    
@@ -130,7 +141,6 @@
     [self setBtnFavorite:nil];
     [self setBtnFacebook:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (void)dealloc

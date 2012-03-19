@@ -26,11 +26,6 @@
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    //[super setSelected:selected animated:animated];
-}
-
 -(void)layoutWithFavorite:(Favorite *)movie{
     [self.lblTitle setText:movie.title];
     if([movie.criticsScore intValue] >= 60){
