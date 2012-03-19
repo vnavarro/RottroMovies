@@ -108,6 +108,7 @@
 
 -(void)onFbAccessorLogin{
     SocialShareViewController* socialShareViewController = [[[SocialShareViewController alloc]initWithStatus:[NSString stringWithFormat:@"I liked a movie %@ #Flixter #RottroMovies",self.movie.movieLink]]autorelease];
+    [socialShareViewController setIsTwitter:NO];
     [self.navigationController pushViewController:socialShareViewController animated:YES];     
 }
 -(void)onFbAccessorLoginError{
@@ -125,6 +126,7 @@
         [self.navigationController pushViewController:twitterAuthViewController animated:YES];
     }else {
         SocialShareViewController *socialShareViewController = [[[SocialShareViewController alloc]initWithStatus:[NSString stringWithFormat:@"I liked a movie %@ #Flixter #RottroMovies",self.movie.movieLink]]autorelease];
+        [socialShareViewController setIsTwitter:YES];
         [self.navigationController pushViewController:socialShareViewController animated:YES];        
     }
 }

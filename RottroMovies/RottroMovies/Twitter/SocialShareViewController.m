@@ -1,9 +1,9 @@
 //
 //  TwitterViewController.m
-//  SocialBOX
+//  RottroMovies
 //
-//  Created by Vitor Navarro on 8/28/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Vitor Navarro on 3/18/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "SocialShareViewController.h"
@@ -19,12 +19,22 @@
 @synthesize isTwitter=_isTwitter;
 
 - (void)updateStatus{
+    [SVProgressHUD showInView:self.view status:@"Sending..."];
     if(self.isTwitter){
         NSInteger actual_count = 140-[self.txtStatus.text length];
-        if(actual_count >= 0) [[TwitterAccessor sharedAccessor] doUpdate:self.txtStatus.text];
+        if(actual_count >= 0) [[TwitterAccessor sharedAccessor] doUpdate:self.txtStatus.text withDelegate:self andFinishedSelector:@selector(updateFinished:didFinishWithData:)];
     }else {
-        [SVProgressHUD showInView:self.view];
         [[FacebookAccessor sharedAccessor] comment:self.txtStatus.text andDelegate:self]; 
+    }
+}
+
+#pragma mark - Twitter Acessor Delegate
+-(void)updateFinished:(OAServiceTicket *)ticket didFinishWithData:(NSData *)data{
+    if(ticket.didSucceed){
+        [SVProgressHUD dismissWithSuccess:@"Success!"];
+    }
+    else {
+        [SVProgressHUD dismissWithError:@"Failed to send"];
     }
 }
 
@@ -32,12 +42,11 @@
 
 -(void)request:(FBRequest *)request didReceiveResponse:(NSURLResponse *)response{
     [SVProgressHUD dismissWithSuccess:@"Shared succefully"];
-    [self.txtStatus resignFirstResponder];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.txtStatus resignFirstResponder];    
 }
 
 - (void)request:(FBRequest *)request didFailWithError:(NSError *)error {
-    [SVProgressHUD dismissWithError:[error localizedDescription]];
+    [SVProgressHUD dismissWithError:@"Failed to send"];
     [self.txtStatus resignFirstResponder];
 }
 
@@ -100,11 +109,12 @@
     [self.txtStatus setText:self.status];
     if (self.isTwitter) {
         [self updateTextSize:self.txtStatus];
+        [self.lblShareSize setHidden:NO];
     }else{
         [self.lblShareSize setHidden:YES];
     }
     
-    UIBarButtonItem *right_button = [[UIBarButtonItem alloc]initWithTitle:@"Share" style:UIBarButtonItemStylePlain target:self action:@selector(update)];
+    UIBarButtonItem *right_button = [[UIBarButtonItem alloc]initWithTitle:@"Share" style:UIBarButtonItemStylePlain target:self action:@selector(updateStatus)];
     
     [self.navigationItem setRightBarButtonItem:right_button];
 }

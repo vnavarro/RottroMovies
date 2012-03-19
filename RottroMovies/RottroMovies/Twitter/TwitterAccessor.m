@@ -1,10 +1,12 @@
 //
 //  TwitterAccessor.m
-//  SocialBOX
+//  RottroMovies
 //
 //  Created by Vitor Navarro on 6/24/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
+//  Altered by Vitor Navarro on 3/18/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 
 #import "TwitterAccessor.h"
 
@@ -29,7 +31,7 @@
 }
 
 -(void)operationFinishedAlert:(BOOL)success withSuccessMessage:(NSString *)message andFailMessage:(NSString *)fail_message{
-    if(success)
+    if(success)        
         [self showAlertWithMessage:message];
     else
         [self showAlertWithMessage:fail_message];
@@ -46,6 +48,10 @@
 
 -(void)doUpdate:(NSString *)status{  
     [self sendStatus:status andDelegate:self withFinishedSelector:@selector(updateFinished:didFinishWithData:)];
+}
+
+-(void)doUpdate:(NSString *)status withDelegate:(id)delegate andFinishedSelector:(SEL)updateFinished{  
+    [self sendStatus:status andDelegate:delegate withFinishedSelector:updateFinished];
 }
 
 #pragma mark - Token Management

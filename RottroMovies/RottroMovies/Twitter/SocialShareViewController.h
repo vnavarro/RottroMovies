@@ -1,9 +1,9 @@
 //
 //  TwitterViewController.h
-//  SocialBOX
+//  RottroMovies
 //
-//  Created by Vitor Navarro on 8/28/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Vitor Navarro on 3/18/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -20,7 +20,6 @@
 @property (nonatomic,retain) NSString *status;
 @property (nonatomic,assign) BOOL isTwitter;
 
-- (void)updateStatus;
 
 -(id)initWithStatus:(NSString *)status;
 @end

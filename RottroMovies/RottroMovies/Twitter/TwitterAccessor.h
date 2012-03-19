@@ -1,10 +1,12 @@
 //
 //  TwitterAccessor.h
-//  SocialBOX
+//  RottroMovies
 //
 //  Created by Vitor Navarro on 6/24/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
+//  Altered by Vitor Navarro on 3/18/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 
 #import <Foundation/Foundation.h>
 #import "OAuthConsumer.h"
@@ -41,6 +43,7 @@
 -(BOOL)loadIsValidCredentials;
 
 -(void)doUpdate:(NSString *)status;
+-(void)doUpdate:(NSString *)status withDelegate:(id)delegate andFinishedSelector:(SEL)updateFinished;
 
 +(TwitterAccessor *) sharedAccessor;
 @end

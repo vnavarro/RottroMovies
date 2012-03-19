@@ -263,10 +263,10 @@
 		283F5A5D15168CE4001D0576 /* SocialShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocialShareViewController.m; path = Twitter/SocialShareViewController.m; sourceTree = "<group>"; };
 		283F5A5F15168E7D001D0576 /* SocialShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SocialShareViewController.xib; path = Twitter/SocialShareViewController.xib; sourceTree = "<group>"; };
 		283F5A6715169724001D0576 /* FacebookView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacebookView.xib; sourceTree = "<group>"; };
-		283F5A691516A61E001D0576 /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 57.png; sourceTree = "<group>"; };
-		283F5A6B1516A639001D0576 /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 114.png; sourceTree = "<group>"; };
-		283F5A6D1516C350001D0576 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		283F5A6F1516C364001D0576 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		283F5A691516A61E001D0576 /* 57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 57.png; path = ../../../57.png; sourceTree = "<group>"; };
+		283F5A6B1516A639001D0576 /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 114.png; path = ../../../114.png; sourceTree = "<group>"; };
+		283F5A6D1516C350001D0576 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../../Default.png; sourceTree = "<group>"; };
+		283F5A6F1516C364001D0576 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../../Default@2x.png"; sourceTree = "<group>"; };
 		289FE7811511A117008E548B /* RottroMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RottroMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289FE7851511A117008E548B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		289FE7871511A117008E548B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -535,10 +535,6 @@
 		289FE7761511A116008E548B = {
 			isa = PBXGroup;
 			children = (
-				283F5A6F1516C364001D0576 /* Default@2x.png */,
-				283F5A6D1516C350001D0576 /* Default.png */,
-				283F5A6B1516A639001D0576 /* 114.png */,
-				283F5A691516A61E001D0576 /* 57.png */,
 				289FE78B1511A117008E548B /* RottroMovies */,
 				289FE7A31511A117008E548B /* RottroMoviesTests */,
 				289FE7841511A117008E548B /* Frameworks */,
@@ -666,6 +662,10 @@
 		289FE7B71511A1A1008E548B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				283F5A6F1516C364001D0576 /* Default@2x.png */,
+				283F5A6D1516C350001D0576 /* Default.png */,
+				283F5A6B1516A639001D0576 /* 114.png */,
+				283F5A691516A61E001D0576 /* 57.png */,
 				283F59D315167D17001D0576 /* Facebook.png */,
 				283F59D415167D17001D0576 /* Facebook@2x.png */,
 				283F59C5151660B1001D0576 /* Add.png */,

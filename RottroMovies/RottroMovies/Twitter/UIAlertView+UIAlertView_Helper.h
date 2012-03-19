@@ -1,6 +1,6 @@
 //
 //  UIAlertView+UIAlertView_Helper.h
-//  SocialBOX
+//  
 //
 //  Created by Vitor Navarro on 10/9/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
