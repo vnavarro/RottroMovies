@@ -79,6 +79,7 @@
 		283F5A6C1516A63B001D0576 /* 114.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5A6B1516A639001D0576 /* 114.png */; };
 		283F5A6E1516C356001D0576 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5A6D1516C350001D0576 /* Default.png */; };
 		283F5A701516C369001D0576 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F5A6F1516C364001D0576 /* Default@2x.png */; };
+		288E989B18B6206000F4BCAA /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 288E989A18B6206000F4BCAA /* libxml2.2.dylib */; };
 		289FE7861511A117008E548B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289FE7851511A117008E548B /* UIKit.framework */; };
 		289FE7881511A117008E548B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289FE7871511A117008E548B /* Foundation.framework */; };
 		289FE78A1511A117008E548B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 289FE7891511A117008E548B /* CoreGraphics.framework */; };
@@ -133,7 +134,6 @@
 		28E2C8BA1512B5C1000C87CC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E2C8B91512B5C1000C87CC /* SystemConfiguration.framework */; };
 		28E2C8BC1512B5C8000C87CC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E2C8BB1512B5C8000C87CC /* MobileCoreServices.framework */; };
 		28E2C8BE1512B5EE000C87CC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E2C8BD1512B5ED000C87CC /* libz.dylib */; };
-		28E2C8C21512B60A000C87CC /* libxml2.2.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E2C8C11512B60A000C87CC /* libxml2.2.7.3.dylib */; };
 		28E2C8C41512B681000C87CC /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 28E2C8C31512B681000C87CC /* libxml2.dylib */; };
 		28E2C8DA1512BAC2000C87CC /* RottenTomatoesInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E2C8D91512BAC2000C87CC /* RottenTomatoesInterface.m */; };
 		28E2C8DB1512BAC2000C87CC /* RottenTomatoesInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E2C8D91512BAC2000C87CC /* RottenTomatoesInterface.m */; };
@@ -267,6 +267,7 @@
 		283F5A6B1516A639001D0576 /* 114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 114.png; path = ../../../114.png; sourceTree = "<group>"; };
 		283F5A6D1516C350001D0576 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../../Default.png; sourceTree = "<group>"; };
 		283F5A6F1516C364001D0576 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../../Default@2x.png"; sourceTree = "<group>"; };
+		288E989A18B6206000F4BCAA /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		289FE7811511A117008E548B /* RottroMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RottroMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289FE7851511A117008E548B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		289FE7871511A117008E548B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -390,10 +391,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				288E989B18B6206000F4BCAA /* libxml2.2.dylib in Frameworks */,
 				283F59A3151643AB001D0576 /* MessageUI.framework in Frameworks */,
 				283F59A1151643A4001D0576 /* Security.framework in Frameworks */,
 				28E2C8C41512B681000C87CC /* libxml2.dylib in Frameworks */,
-				28E2C8C21512B60A000C87CC /* libxml2.2.7.3.dylib in Frameworks */,
 				28E2C8BE1512B5EE000C87CC /* libz.dylib in Frameworks */,
 				289FE78A1511A117008E548B /* CoreGraphics.framework in Frameworks */,
 				28E2C8BC1512B5C8000C87CC /* MobileCoreServices.framework in Frameworks */,
@@ -554,6 +555,7 @@
 		289FE7841511A117008E548B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				288E989A18B6206000F4BCAA /* libxml2.2.dylib */,
 				28E2C7F81512ADDF000C87CC /* external */,
 				283F59A2151643AB001D0576 /* MessageUI.framework */,
 				283F59A0151643A3001D0576 /* Security.framework */,
